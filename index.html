@@ -12,6 +12,7 @@
 <script src="JS/three.js"></script>
 <script src="JS/GLTFLoader.js"></script>
 <script src="JS/OBJLoader.js"></script>
+<script src="JS/OrbitControls.js"></script>
 <script>
     var container, stats, controls;
     var camera, scene, renderer, light, texture, material;
@@ -24,7 +25,9 @@
         document.body.appendChild( container );
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 500 );
-        camera.position.set( 0, 0, 2.1 );
+        camera.position.set( 0, 0, 5 );
+        controls = new THREE.OrbitControls( camera );
+        controls.update();
 
 
         scene = new THREE.Scene();
@@ -32,9 +35,9 @@
         light.position.set( 0, 1, 1 );
         scene.add( light );
 
-        var path = 'assets/mat1.png';
+        var path = 'assets/mat8.png';
 
-        var texture = new THREE.TextureLoader().load( path, function ( texture ) {
+        texture = new THREE.TextureLoader().load( path, function ( texture ) {
             texture.generateMipmaps = true;
             //texture.wrapS = texture.wrapT = THREE.LinearFilter;
             texture.offset.set( 0, 0 );
@@ -117,6 +120,7 @@
         console.log(texture)
         container.appendChild( renderer.domElement );
 
+
         window.addEventListener( 'resize', onWindowResize, false );
     }
     function onWindowResize() {
@@ -126,9 +130,9 @@
     }
     function animate() {
         requestAnimationFrame( animate );
+        controls.update();
         renderer.render( scene, camera );
-        camera.lookAt(scene.position);
-        //scene.rotation.z += 0.01;
+        //camera.lookAt(scene.position);
     }
 
 
