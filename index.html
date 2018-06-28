@@ -13,7 +13,7 @@
 <script src="JS/GLTFLoader.js"></script>
 <script>
     var container, stats, controls;
-    var camera, scene, renderer, light;
+    var camera, scene, renderer, light, texture, material;
     init();
     animate();
 
@@ -23,28 +23,50 @@
         document.body.appendChild( container );
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 500 );
-        camera.position.set( 0, 0, 2.7 );
+        camera.position.set( 0, 0, 2 );
 
 
         scene = new THREE.Scene();
-        light = new THREE.HemisphereLight( 0xbbbbff, 0x444422 );
+        light = new THREE.HemisphereLight( 0xbbbbff, 0x444422, 1 );
         light.position.set( 0, 1, 1 );
         scene.add( light );
+
+        var path = 'assets/mat1.png';
+        texture = new THREE.TextureLoader().load(path);
+        material = new THREE.MeshPhongMaterial( {
+            map: texture
+        } );
+        material.roughness = 1
+        material.metalness = 0
+        material.opacity = 1;
+        material.visible = 1;
+        material.shading = THREE.FlatShading;
         // model
         var loader = new THREE.GLTFLoader();
         loader.load( 'assets/Assem3.gltf', function ( gltf ) {
 
+            gltf.scene.traverse( function ( child ) {
+
+                if ( child.isMesh ) {
+
+                    child.material = material
+
+                }
+
+            } );
             scene.add( gltf.scene );
             scene.rotation.x -= 1;
             scene.rotation.y -= 3;
             scene.rotation.z -= 2;
+
             console.log(scene)
 
         } );
         renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.gammaOutput = true;
+        renderer.gammaOutput = false;
+        console.log(texture)
         container.appendChild( renderer.domElement );
 
         window.addEventListener( 'resize', onWindowResize, false );
@@ -58,7 +80,7 @@
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
         camera.lookAt(scene.position);
-        scene.rotation.z -= 0.01;
+        //scene.rotation.z -= 0.01;
     }
 
 
