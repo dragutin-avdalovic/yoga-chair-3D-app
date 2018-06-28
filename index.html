@@ -11,6 +11,7 @@
 <body>
 <script src="JS/three.js"></script>
 <script src="JS/GLTFLoader.js"></script>
+<script src="JS/OBJLoader.js"></script>
 <script>
     var container, stats, controls;
     var camera, scene, renderer, light, texture, material;
@@ -23,7 +24,7 @@
         document.body.appendChild( container );
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 500 );
-        camera.position.set( 0, 0, 2 );
+        camera.position.set( 0, 0, 2.1 );
 
 
         scene = new THREE.Scene();
@@ -32,40 +33,87 @@
         scene.add( light );
 
         var path = 'assets/mat1.png';
-        texture = new THREE.TextureLoader().load(path);
-        material = new THREE.MeshPhongMaterial( {
+
+        var texture = new THREE.TextureLoader().load( path, function ( texture ) {
+            texture.generateMipmaps = true;
+            //texture.wrapS = texture.wrapT = THREE.LinearFilter;
+            texture.offset.set( 0, 0 );
+            texture.repeat.set( 10, 10 );
+            texture.minFilter = THREE.LinearMipMapLinearFilter;
+            texture.anisotropy = renderer.getMaxAnisotropy();
+
+        } );
+        material = new THREE.MeshStandardMaterial( {
             map: texture
         } );
         material.roughness = 1
         material.metalness = 0
         material.opacity = 1;
         material.visible = 1;
-        material.shading = THREE.FlatShading;
         // model
-        var loader = new THREE.GLTFLoader();
-        loader.load( 'assets/Assem3.gltf', function ( gltf ) {
+//        var loader = new THREE.GLTFLoader();
+//        loader.load( 'assets/sjediste step.gltf', function ( gltf ) {
+//
+//            gltf.scene.traverse( function ( child ) {
+//
+//                if ( child.isMesh ) {
+//
+//                    child.material = material
+//
+//                }
+//
+//            } );
+//            scene.add( gltf.scene );
+//              scene.rotation.x = 1.2;
+//              scene.rotation.y = 0;
+//              scene.rotation.z = 0;
+//
+//            console.log(scene)
+//
+//        } );
+        // instantiate a loader
+        var loader = new THREE.OBJLoader();
 
-            gltf.scene.traverse( function ( child ) {
+        // load a resource
+        loader.load(
+            // resource URL
+            'assets/untitled.obj',
+            // called when resource is loaded
+            function ( object ) {
+              object.traverse( function ( child ) {
 
-                if ( child.isMesh ) {
+                  if ( child.isMesh ) {
 
-                    child.material = material
+                      child.material = material
 
-                }
+                  }
 
-            } );
-            scene.add( gltf.scene );
-            scene.rotation.x -= 1;
-            scene.rotation.y -= 3;
-            scene.rotation.z -= 2;
+              } );
+              scene.add( object );
+              scene.rotation.x = -1;
+              scene.rotation.y = 0;
+              scene.rotation.z = 2.2;
 
-            console.log(scene)
 
-        } );
+            },
+            // called when loading is in progresses
+            function ( xhr ) {
+
+                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+            },
+            // called when loading has errors
+            function ( error ) {
+
+                console.log( 'An error happened' );
+
+            }
+        );
         renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.gammaOutput = false;
+        //renderer.gammaOutput = true;
+        //renderer.gammaInput = true;
         console.log(texture)
         container.appendChild( renderer.domElement );
 
@@ -80,7 +128,7 @@
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
         camera.lookAt(scene.position);
-        //scene.rotation.z -= 0.01;
+        //scene.rotation.z += 0.01;
     }
 
 
