@@ -25,7 +25,7 @@
         document.body.appendChild( container );
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 500 );
-        camera.position.set( 0, 0, 5 );
+        camera.position.set( 0, 0, 3 );
         controls = new THREE.OrbitControls( camera );
         controls.update();
 
@@ -35,7 +35,7 @@
         light.position.set( 0, 1, 1 );
         scene.add( light );
 
-        var path = 'assets/mat8.png';
+        var path = 'assets/mat1.png';
 
         texture = new THREE.TextureLoader().load( path, function ( texture ) {
             texture.generateMipmaps = true;
@@ -53,7 +53,6 @@
         material.metalness = 0
         material.opacity = 1;
         material.visible = 1;
-        // model
 //        var loader = new THREE.GLTFLoader();
 //        loader.load( 'assets/sjediste step.gltf', function ( gltf ) {
 //
@@ -80,15 +79,12 @@
         // load a resource
         loader.load(
             // resource URL
-            'assets/untitled.obj',
+            'assets/full-chair.obj',
             // called when resource is loaded
             function ( object ) {
               object.traverse( function ( child ) {
-
                   if ( child.isMesh ) {
-
                       child.material = material
-
                   }
 
               } );
@@ -96,8 +92,6 @@
               scene.rotation.x = -1;
               scene.rotation.y = 0;
               scene.rotation.z = 2.2;
-
-
             },
             // called when loading is in progresses
             function ( xhr ) {
@@ -115,11 +109,10 @@
         renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
-        //renderer.gammaOutput = true;
-        //renderer.gammaInput = true;
+        renderer.gammaOutput = true;
+        renderer.gammaInput = true;
         console.log(texture)
         container.appendChild( renderer.domElement );
-
 
         window.addEventListener( 'resize', onWindowResize, false );
     }
@@ -134,8 +127,6 @@
         renderer.render( scene, camera );
         //camera.lookAt(scene.position);
     }
-
-
 </script>
 </body>
 </html>
