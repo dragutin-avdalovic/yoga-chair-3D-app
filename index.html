@@ -24,29 +24,30 @@
         container = document.createElement( 'div' );
         document.body.appendChild( container );
 
-        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 500 );
-        camera.position.set( 0, 0, 3 );
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 5, 5000 );
+        camera.position.set( 0, 20 ,20 );
+        camera.lookAt(scene);
         controls = new THREE.OrbitControls( camera );
         controls.update();
 
 
-        scene = new THREE.Scene();
         light = new THREE.HemisphereLight( 0xbbbbff, 0x444422, 1 );
-        light.position.set( 0, 1, 1 );
+        light.position.set( 0, 0, 5 );
         scene.add( light );
 
-        var path = 'assets/mat1.png';
+        var path = 'assets/mat8.png';
 
         texture = new THREE.TextureLoader().load( path, function ( texture ) {
             texture.generateMipmaps = true;
             //texture.wrapS = texture.wrapT = THREE.LinearFilter;
-            texture.offset.set( 0, 0 );
-            texture.repeat.set( 10, 10 );
-            texture.minFilter = THREE.LinearMipMapLinearFilter;
-            texture.anisotropy = renderer.getMaxAnisotropy();
+            //texture.offset.set( 0, 0 );
+            //texture.repeat.set( 10, 10 );
+            //texture.minFilter = THREE.LinearMipMapLinearFilter;
 
         } );
-        material = new THREE.MeshStandardMaterial( {
+        material = new THREE.MeshPhongMaterial( {
             map: texture
         } );
         material.roughness = 1
@@ -79,7 +80,7 @@
         // load a resource
         loader.load(
             // resource URL
-            'assets/full-chair.obj',
+            'assets/Obj_files/4.obj',
             // called when resource is loaded
             function ( object ) {
               object.traverse( function ( child ) {
@@ -89,9 +90,9 @@
 
               } );
               scene.add( object );
-              scene.rotation.x = -1;
+              scene.rotation.x = 0;
               scene.rotation.y = 0;
-              scene.rotation.z = 2.2;
+              scene.rotation.z = 0;
             },
             // called when loading is in progresses
             function ( xhr ) {
@@ -111,7 +112,6 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.gammaOutput = true;
         renderer.gammaInput = true;
-        console.log(texture)
         container.appendChild( renderer.domElement );
 
         window.addEventListener( 'resize', onWindowResize, false );
@@ -125,7 +125,6 @@
         requestAnimationFrame( animate );
         controls.update();
         renderer.render( scene, camera );
-        //camera.lookAt(scene.position);
     }
 </script>
 </body>
