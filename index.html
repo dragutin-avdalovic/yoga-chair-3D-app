@@ -26,25 +26,29 @@
 
         scene = new THREE.Scene();
 
-        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 5, 5000 );
-        camera.position.set( 0, 20 ,20 );
-        camera.lookAt(scene);
+        camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 10000 );
+        camera.position.z = -2500;
+        camera.position.x = 0;
+        camera.position.y = -100;
+        camera.up = new THREE.Vector3(0, 0, 1 );
         controls = new THREE.OrbitControls( camera );
         controls.update();
 
 
         light = new THREE.HemisphereLight( 0xbbbbff, 0x444422, 1 );
-        light.position.set( 0, 0, 5 );
+        light.position.set( 0, 0, 10 );
         scene.add( light );
+        camera.lookAt(scene)
 
-        var path = 'assets/mat1.png';
+
+        var path = 'assets/mat2.png';
 
         texture = new THREE.TextureLoader().load( path, function ( texture ) {
             texture.generateMipmaps = true;
-            //texture.wrapS = texture.wrapT = THREE.LinearFilter;
-            //texture.offset.set( 0, 0 );
-            //texture.repeat.set( 10, 10 );
-            //texture.minFilter = THREE.LinearMipMapLinearFilter;
+            texture.wrapS = texture.wrapT = THREE.LinearFilter;
+            texture.offset.set( 0, 0 );
+            texture.repeat.set( 10, 10 );
+            texture.minFilter = THREE.LinearMipMapLinearFilter;
 
         } );
         material = new THREE.MeshPhongMaterial( {
@@ -54,26 +58,6 @@
         material.metalness = 0
         material.opacity = 1;
         material.visible = 1;
-//        var loader = new THREE.GLTFLoader();
-//        loader.load( 'assets/sjediste step.gltf', function ( gltf ) {
-//
-//            gltf.scene.traverse( function ( child ) {
-//
-//                if ( child.isMesh ) {
-//
-//                    child.material = material
-//
-//                }
-//
-//            } );
-//            scene.add( gltf.scene );
-//              scene.rotation.x = 1.2;
-//              scene.rotation.y = 0;
-//              scene.rotation.z = 0;
-//
-//            console.log(scene)
-//
-//        } );
         // instantiate a loader
         var loader = new THREE.OBJLoader();
 
@@ -89,10 +73,9 @@
                   }
 
               } );
-              scene.add( object );
-              scene.rotation.x = 0;
-              scene.rotation.y = 0;
-              scene.rotation.z = 0;
+              object.rotation.x = 120 * Math.PI/180;
+              console.log(object.rotation)
+              scene.add( object )
             },
             // called when loading is in progresses
             function ( xhr ) {

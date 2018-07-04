@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4a03c68-0ba3-403d-b193-084baaaac05b" name="Default" comment="    3d files with applable texture updated.">
+    <list default="true" id="f4a03c68-0ba3-403d-b193-084baaaac05b" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/Obj_files/5_(druge_noge).obj" afterPath="$PROJECT_DIR$/assets/Obj_files/5.obj" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/Obj_files/6_(trece_noge).obj" afterPath="$PROJECT_DIR$/assets/Obj_files/6.obj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Obj_files/1.obj" afterPath="$PROJECT_DIR$/assets/Obj_files/1.obj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Obj_files/2.obj" afterPath="$PROJECT_DIR$/assets/Obj_files/2.obj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Obj_files/3.obj" afterPath="$PROJECT_DIR$/assets/Obj_files/3.obj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Obj_files/4.obj" afterPath="$PROJECT_DIR$/assets/Obj_files/4.obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Obj_files/5_(druge_noge).obj" afterPath="$PROJECT_DIR$/assets/Obj_files/5_(druge_noge).obj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Obj_files/6_(trece_noge).obj" afterPath="$PROJECT_DIR$/assets/Obj_files/6_(trece_noge).obj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/Obj_files/cijela_stolica.obj" afterPath="$PROJECT_DIR$/assets/Obj_files/cijela_stolica.obj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
@@ -28,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="88" column="16" lean-forward="true" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+            <state relative-caret-position="-539">
+              <caret line="59" column="29" lean-forward="false" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -56,11 +56,12 @@
       <find>update</find>
       <find>opacity</find>
       <find>controls</find>
-      <find>camera</find>
       <find>position</find>
       <find>texture</find>
       <find>mat1</find>
       <find>requestAnimationFrame</find>
+      <find>camera</find>
+      <find>obj</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -85,10 +86,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="70" />
-    <option name="y" value="-11" />
-    <option name="width" value="1531" />
-    <option name="height" value="912" />
+    <option name="x" value="71" />
+    <option name="y" value="-4" />
+    <option name="width" value="1529" />
+    <option name="height" value="904" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -120,6 +121,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yoga-chair-3D" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yoga-chair-3D" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yoga-chair-3D" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yoga-chair-3D" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Obj_files" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -127,7 +160,7 @@
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v8.9.4/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../srce-za-djecu-api" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
@@ -236,7 +269,7 @@
       <workItem from="1530541573043" duration="1731000" />
       <workItem from="1530599805915" duration="383000" />
       <workItem from="1530619662469" duration="272000" />
-      <workItem from="1530686868793" duration="626000" />
+      <workItem from="1530686868793" duration="7875000" />
     </task>
     <task id="LOCAL-00001" summary="Material from image applied to image mesh">
       <created>1530173608301</created>
@@ -287,16 +320,24 @@
       <option name="project" value="LOCAL" />
       <updated>1530600166707</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Camera settings in progress">
+      <created>1530688001711</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1530688001711</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48108000" />
+    <option name="totallyTimeSpent" value="55357000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="-11" width="1531" height="912" extended-state="6" />
+    <frame x="71" y="-4" width="1529" height="904" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2118194" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2118194" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -326,7 +367,8 @@
     <MESSAGE value="Orbit controls added to project" />
     <MESSAGE value="Orbit controls added to project, the obj part of chair added" />
     <MESSAGE value="    3d files with applable texture updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="    3d files with applable texture updated." />
+    <MESSAGE value="Camera settings in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Camera settings in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -543,8 +585,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="88" column="16" lean-forward="true" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+        <state relative-caret-position="-539">
+          <caret line="59" column="29" lean-forward="false" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
           <folding />
         </state>
       </provider>
