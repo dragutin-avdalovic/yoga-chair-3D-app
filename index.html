@@ -26,10 +26,8 @@
 
         scene = new THREE.Scene();
 
-        camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 10000 );
-        camera.position.z = -2500;
-        camera.position.x = 0;
-        camera.position.y = -100;
+        camera = new THREE.PerspectiveCamera( 120, window.innerWidth / window.innerHeight, 0.1, 10000 );
+        camera.position.set(0,0,-2000)
         camera.up = new THREE.Vector3(0, 0, 1 );
         controls = new THREE.OrbitControls( camera );
         controls.update();
@@ -41,14 +39,11 @@
         camera.lookAt(scene)
 
 
-        var path = 'assets/mat2.png';
+        var path = 'assets/mat1.png';
 
         texture = new THREE.TextureLoader().load( path, function ( texture ) {
-            texture.generateMipmaps = true;
             texture.wrapS = texture.wrapT = THREE.LinearFilter;
-            texture.offset.set( 0, 0 );
-            texture.repeat.set( 10, 10 );
-            texture.minFilter = THREE.LinearMipMapLinearFilter;
+            texture.repeat.set( 5, 5 );
 
         } );
         material = new THREE.MeshPhongMaterial( {
@@ -64,7 +59,7 @@
         // load a resource
         loader.load(
             // resource URL
-            'assets/Obj_files/cijela_stolica.obj',
+            'assets/Obj_files/objnovi6.obj',
             // called when resource is loaded
             function ( object ) {
               object.traverse( function ( child ) {
@@ -73,9 +68,11 @@
                   }
 
               } );
-              object.rotation.x = 120 * Math.PI/180;
+              //object.rotation.x = 120 * Math.PI/180;
+              //object.position.set( -250, 180, 400 );
               console.log(object.rotation)
               scene.add( object )
+              camera.lookAt(scene)
             },
             // called when loading is in progresses
             function ( xhr ) {
@@ -90,6 +87,36 @@
 
             }
         );
+//        loader.load(
+//            // resource URL
+//            'assets/Obj_files/2.obj',
+//            // called when resource is loaded
+//            function ( object ) {
+//              object.traverse( function ( child ) {
+//                  if ( child.isMesh ) {
+//                      child.material = material
+//                  }
+//
+//              } );
+//              //object.rotation.x = 120 * Math.PI/180;
+//              console.log(object.rotation)
+//              object.position.set( 0, 0, 0 );
+//              scene.add( object )
+//              camera.lookAt(scene)
+//            },
+//            // called when loading is in progresses
+//            function ( xhr ) {
+//
+//                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+//
+//            },
+//            // called when loading has errors
+//            function ( error ) {
+//
+//                console.log( 'An error happened' );
+//
+//            }
+//        );
         renderer = new THREE.WebGLRenderer( { antialias: true } );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
