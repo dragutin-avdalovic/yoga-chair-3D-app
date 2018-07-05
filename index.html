@@ -26,15 +26,15 @@
 
         scene = new THREE.Scene();
 
-        camera = new THREE.PerspectiveCamera( 120, window.innerWidth / window.innerHeight, 0.1, 10000 );
-        camera.position.set(0,0,-2000)
+        camera = new THREE.PerspectiveCamera( 120, window.innerWidth / window.innerHeight, 0.1, 100000 );
+        camera.position.set(0,0,-1500)
         camera.up = new THREE.Vector3(0, 0, 1 );
         controls = new THREE.OrbitControls( camera );
         controls.update();
 
 
         light = new THREE.HemisphereLight( 0xbbbbff, 0x444422, 1 );
-        light.position.set( 0, 0, 10 );
+        light.position.set( 0, 0, 0 );
         scene.add( light );
         camera.lookAt(scene)
 
@@ -42,8 +42,8 @@
         var path = 'assets/mat1.png';
 
         texture = new THREE.TextureLoader().load( path, function ( texture ) {
-            texture.wrapS = texture.wrapT = THREE.LinearFilter;
-            texture.repeat.set( 5, 5 );
+//            texture.wrapS = texture.wrapT = THREE.LinearFilter;
+//            texture.repeat.set( 5, 5 );
 
         } );
         material = new THREE.MeshPhongMaterial( {
@@ -59,7 +59,7 @@
         // load a resource
         loader.load(
             // resource URL
-            'assets/Obj_files/objnovi6.obj',
+            'assets/Obj_files/objnovi10cijela.obj',
             // called when resource is loaded
             function ( object ) {
               object.traverse( function ( child ) {
@@ -69,7 +69,7 @@
 
               } );
               //object.rotation.x = 120 * Math.PI/180;
-              //object.position.set( -250, 180, 400 );
+              //object.position.set( 10,2100,-1000 );
               console.log(object.rotation)
               scene.add( object )
               camera.lookAt(scene)
@@ -89,7 +89,7 @@
         );
 //        loader.load(
 //            // resource URL
-//            'assets/Obj_files/2.obj',
+//            'assets/Obj_files/objnovi5.obj',
 //            // called when resource is loaded
 //            function ( object ) {
 //              object.traverse( function ( child ) {
